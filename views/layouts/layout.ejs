@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="\stylesheets\main.css" />
     <link
       href="https://unpkg.com/filepond@^4/dist/filepond.css"
       rel="stylesheet"
@@ -11,6 +12,11 @@
       href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
       rel="stylesheet"
     />
+    <script
+      defer
+      src="https://kit.fontawesome.com/9db9a4a1ce.js"
+      crossorigin="anonymous"
+    ></script>
     <script
       defer
       src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"
@@ -28,7 +34,11 @@
     <title>Read Deez Books</title>
   </head>
   <body>
-    <%- include('../partials/header') %> <%- include('../partials/errorMessage')
-    %> <%- body %>
+    <div class="container">
+      <%- include('../partials/header') %>
+      <div class="inner-container">
+        <%- include('../partials/errorMessage') %> <%- body %>
+      </div>
+    </div>
   </body>
 </html>

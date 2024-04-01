@@ -1,0 +1,40 @@
+:root {
+  --header-title-font-size: 3rem;
+  --header-title-font-weight: 800;
+  --header-link-font-size: 1.5rem;
+  --header-link-font-weight: 300;
+}
+
+.header {
+  margin-top: 2rem;
+}
+
+.header-title {
+  text-decoration: none;
+  font-size: var(--header-title-font-size);
+  font-weight: var(--header-title-font-weight);
+  color: var(--color-text-light);
+}
+
+.header-navbar {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+
+.header-navbar li {
+  list-style: none;
+}
+
+.header-navbar li a {
+  text-decoration: none;
+  font-size: var(--header-link-font-size);
+  font-weight: var(--header-link-font-weight);
+  color: var(--color-text-light);
+}
+
+.header-title:hover,
+.header-navbar li a:hover {
+  color: white;
+}

@@ -1,0 +1,4 @@
+.btn {
+  padding: 1rem;
+  background: hsl(var(--color-base-hue, 100%, 50%));
+}

@@ -1,0 +1,9 @@
+:root {
+  --color-base-hue: 200;
+  --color-background-light: hsl(var(--color-base-hue), 100%, 16%);
+  --color-background-dark: hsl(var(--color-base-hue), 100%, 8%);
+  --color-text-light: hsl(var(--color-base-hue), 100%, 88%);
+  --font-family: "Roboto", Times, serif;
+  --page-title-font-size: 2.5rem;
+  --page-title-font-weight: 800;
+}
