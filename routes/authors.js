@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Author = require("../models/author");
+const Book = require("../models/book");
 
 //Authors Router
 router.get("/", async (req, res) => {
@@ -40,9 +41,11 @@ router.post("/", async (req, res) => {
 //Display author
 router.get("/:id", async (req, res) => {
   const author = await Author.findById(req.params.id);
+  const books = await Book.find({ author: req.params.id });
   try {
     res.render("authors/show", {
       author: author,
+      books: books,
     });
   } catch (err) {
     res.redirect("/");
@@ -52,12 +55,19 @@ router.get("/:id", async (req, res) => {
 
 //Delete author
 router.delete("/:id", async (req, res) => {
+  const books = await Book.find({ author: req.params.id });
   try {
+    if (books.length > 0) {
+      throw new Error("Unable to delete author with books");
+    }
     await Author.findByIdAndDelete(req.params.id);
     res.redirect("/authors");
   } catch (err) {
-    res.render("/:id", {
-      errorMessage: "Error deleting author...",
+    let author = await Author.findById(req.params.id);
+    res.render("authors/show", {
+      author: author,
+      books: books,
+      errorMessage: err,
     });
     console.error(err);
   }

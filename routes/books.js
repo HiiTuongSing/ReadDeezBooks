@@ -47,8 +47,8 @@ router.post("/", async (req, res) => {
     }
 
     await book.save();
-
-    res.render("books/show", { book: book });
+    const author = await Author.findById(book.author);
+    res.render("books/show", { author: author, book: book });
   } catch (err) {
     console.error(err);
     res.render("books/new", {
@@ -130,7 +130,7 @@ router.delete("/:id", async (req, res) => {
   const books = await Book.find({});
   try {
     book = await Book.findByIdAndDelete(req.params.id);
-    res.render("books/index", { books: books });
+    res.redirect("/books");
   } catch (err) {
     console.error(err);
     res.render("books/index", {
