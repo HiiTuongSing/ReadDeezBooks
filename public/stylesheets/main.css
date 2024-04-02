@@ -40,3 +40,7 @@ body {
   font-weight: var(--page-title-font-weight);
   user-select: none;
 }
+
+.error-message {
+  color: var(--color-text-danger);
+}
