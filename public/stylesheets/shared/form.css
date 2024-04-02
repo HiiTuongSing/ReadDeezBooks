@@ -1,3 +1,11 @@
+:root {
+  --form-label-font-size: 1.5rem;
+  --form-label-font-weight: 400;
+  --form-input-font-size: 1rem;
+  --form-input-font-weight: 300;
+  --form-input-color-background: hsl(var(--color-base-hue), 100%, 90%);
+}
+
 .form-row {
   display: flex;
   margin-bottom: 0.5rem;
@@ -5,4 +13,56 @@
 
 .form-row-end {
   justify-content: flex-end;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0;
+  margin-left: 2rem;
+}
+
+.form-item-no-grow {
+  flex-grow: 0.2;
+}
+
+.form-item:first-child {
+  margin-left: 0;
+}
+
+.form-label {
+  font-size: var(--form-label-font-size);
+  font-weight: var(--form-label-font-weight);
+}
+
+.form-input {
+  background: var(--form-input-color-background);
+  border: none;
+  font-size: var(--form-input-font-size);
+  font-weight: var(--form-input-font-weight);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.form-item textarea {
+  resize: none;
+  height: 100%;
+  margin-bottom: 1rem;
+}
+
+.filepond--root {
+  font-family: var(--font-family);
+  margin-bottom: 0;
+}
+
+.filepond--panel {
+  background: var(--form-input-color-background);
+  border: 1px solid black;
+}
+
+.filepond--drop-label {
+  color: var(--color-text-light);
+  font-size: inherit;
+  padding-top: 2rem;
 }

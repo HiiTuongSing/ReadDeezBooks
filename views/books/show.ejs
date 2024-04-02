@@ -1,20 +1,32 @@
 <h2 class="page-title"><%= book.title %></h2>
-<img widht="100" height="150" src="<%= book.coverImagePath %>" />
+<div class="book-show-container">
+  <div class="book-display-container-small">
+    <img src="<%= book.coverImagePath %>" />
+    <div class="book-details-btn-grid">
+      <a class="btn btn-primary" href="/books/<%= book.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm', {url: `/books/${book.id}` }) %>
 
-<label>Author</label>
-<p><%= author.name %></p>
+      <a
+        class="btn btn-primary book-details-author-btn"
+        href="/authors/<%= book.author %>"
+        >View Author</a
+      >
+    </div>
+  </div>
 
-<label>Publish Date</label>
-<p><%= book.publishDate.toISOString().split('T')[0] %></p>
+  <div class="book-description">
+    <label class="book-label">Author: </label>
+    <div><%= author.name %></div>
 
-<label>Page Count</label>
-<p><%= book.pageCount %></p>
+    <label class="book-label">Publish Date: </label>
+    <div><%= book.publishDate.toISOString().split('T')[0] %></div>
 
-<label>Description</label>
-<p><%= book.description %></p>
+    <label class="book-label">Page Count: </label>
+    <div><%= book.pageCount %></div>
 
-<div class="btn-row">
-  <a class="btn btn-primary" href="/books/<%= book.id %>/edit">Edit</a>
-  <%- include('../partials/deleteForm', {url: `/books/${book.id}` }) %>
+    <% if(book.description != null && book.description != '') { %>
+    <label class="book-label">Description: </label>
+    <div><%= book.description %></div>
+    <% } %>
+  </div>
 </div>
-<a href="/authors/<%= book.author %>">View Author</a>

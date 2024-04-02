@@ -6,13 +6,15 @@
   --color-btn-danger-background: hsl(var(--color-danger-hue), 100%, 40%);
   --color-btn-danger-background-hover: hsl(var(--color-danger-hue), 100%, 60%);
   --color-btn-danger-text: hsl(var(--color-danger-hue), 100%, 88%);
+  --btn-font-size: 1rem;
 }
 
 .btn {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: var(--font-family);
+  font-family: var(--font-family);
+  font-size: var(--btn-font-size);
   text-decoration: none;
 }
 

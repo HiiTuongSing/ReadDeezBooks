@@ -31,6 +31,7 @@
 .book-display-container img {
   aspect-ratio: 100/150;
   width: 80%;
+  margin-bottom: 0.5rem;
 }
 
 .book-display-container h2 {
@@ -41,4 +42,58 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--book-cover-width));
   width: 1200px;
+}
+
+.book-show-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.book-display-container-small {
+  width: 200px;
+  aspect-ratio: 100/150;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.book-display-container-small img {
+  aspect-ratio: 100/150;
+  width: 80%;
+  margin-bottom: 0.5rem;
+}
+
+.book-description {
+  padding-top: 0.5rem;
+  display: grid;
+  align-content: flex-start;
+  align-items: center;
+  grid-gap: 1rem;
+  grid-template-columns: auto auto;
+}
+
+.book-details-btn-grid {
+  display: grid;
+  justify-items: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-template-areas:
+    "edit delete"
+    "author author";
+  grid-gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.book-details-author-btn {
+  grid-area: author;
+  justify-self: stretch;
+}
+
+.book-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  align-items: flex-start;
 }
