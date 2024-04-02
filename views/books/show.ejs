@@ -1,4 +1,4 @@
-<h2><%= book.title %></h2>
+<h2 class="page-title"><%= book.title %></h2>
 <img widht="100" height="150" src="<%= book.coverImagePath %>" />
 
 <label>Author</label>
@@ -13,6 +13,8 @@
 <label>Description</label>
 <p><%= book.description %></p>
 
-<a href="/books/<%= book.id %>/edit">Edit</a>
+<div class="btn-row">
+  <a class="btn btn-primary" href="/books/<%= book.id %>/edit">Edit</a>
+  <%- include('../partials/deleteForm', {url: `/books/${book.id}` }) %>
+</div>
 <a href="/authors/<%= book.author %>">View Author</a>
-<%- include('../partials/deleteForm', {url: `/books/${book.id}` }) %>

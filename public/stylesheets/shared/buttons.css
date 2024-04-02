@@ -1,0 +1,50 @@
+:root {
+  --color-danger-hue: calc(var(--color-base-hue) - 180);
+  --color-btn-primary-background: hsl(var(--color-base-hue), 100%, 40%);
+  --color-btn-primary-background-hover: hsl(var(--color-base-hue), 100%, 60%);
+  --color-btn-primary-text: hsl(var(--color-base-hue), 100%, 88%);
+  --color-btn-danger-background: hsl(var(--color-danger-hue), 100%, 40%);
+  --color-btn-danger-background-hover: hsl(var(--color-danger-hue), 100%, 60%);
+  --color-btn-danger-text: hsl(var(--color-danger-hue), 100%, 88%);
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: var(--font-family);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-btn-primary-background);
+  color: var(--color-btn-primary-text);
+  border: 1px solid var(--color-btn-primary-text);
+}
+
+.btn-primary:hover {
+  background: var(--color-btn-primary-background-hover);
+}
+
+.btn-danger {
+  background: var(--color-btn-danger-background);
+  color: var(--color-btn-danger-text);
+  border: 1px solid var(--color-btn-danger-text);
+}
+
+.btn-danger:hover {
+  background: var(--color-btn-danger-background-hover);
+}
+
+.btn-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.btn-row > * {
+  margin-left: 0.5rem;
+}
+
+.btn-row > *:first-child {
+  margin-left: 0;
+}

@@ -1,0 +1,44 @@
+:root {
+  --book-cover-width: 400px;
+}
+
+.book-display-container {
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.book-display-container:hover {
+  background: var(--color-background-light);
+}
+
+.book-display-container a {
+  text-decoration: none;
+  color: var(--color-text-light);
+}
+
+.book-display-container a:hover {
+  text-decoration: none;
+  color: var(--color-text-dark);
+}
+
+.book-display-container img {
+  aspect-ratio: 100/150;
+  width: 80%;
+}
+
+.book-display-container h2 {
+  text-wrap: wrap;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--book-cover-width));
+  width: 1200px;
+}
