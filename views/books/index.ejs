@@ -1,5 +1,27 @@
 <h2 class="page-title">Books</h2>
 
+<form action="/books" method="get">
+  <label>Title</label>
+  <input type="text" name="title" value="<%= reqQuery.title %>" />
+
+  <label>Published Before</label>
+  <input
+    type="date"
+    name="publishedBefore"
+    value="<%= reqQuery.publishedBefore %>"
+  />
+
+  <label>Published After</label>
+  <input
+    type="date"
+    name="publishedAfter"
+    value="<%= reqQuery.publishedAfter %>"
+  />
+
+  <a href="/books">Clear</a>
+  <button type="submit">Search</button>
+</form>
+
 <div class="book-grid">
   <% books.forEach( book => { %>
   <div class="book-display-container">

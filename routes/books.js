@@ -4,11 +4,26 @@ const Author = require("../models/author");
 const Book = require("../models/book");
 const imageMimeTypes = ["image/jpeg", "image/png", "image/gif"];
 
-//Books Router
+//Books Router with a Search Query
 router.get("/", async (req, res) => {
-  const books = await Book.find({});
+  let query = Book.find();
+
+  if (req.query.title != null && req.query.title !== "") {
+    query = query.regex("title", new RegExp(req.query.title, "i"));
+  } else if (
+    req.query.publishedBefore != null &&
+    req.query.publishedBefore !== ""
+  ) {
+    query = query.lte("publishDate", req.query.publishedBefore);
+  } else if (
+    req.query.publishedAfter != null &&
+    req.query.publishedAfter !== ""
+  ) {
+    query = query.gte("publishDate", req.query.publishedAfter);
+  }
+  let books = await query;
   try {
-    res.render("books/index", { books: books });
+    res.render("books/index", { books: books, reqQuery: req.query });
   } catch (err) {
     console.error(err);
   }
