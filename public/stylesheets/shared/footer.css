@@ -1,0 +1,30 @@
+.footer {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer ul {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.footer h4 {
+  text-align: center;
+}
+
+.footer li {
+  list-style: none;
+  margin-right: 1rem;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--color-text-dark);
+}
+
+.footer a:hover {
+  color: var(--color-text-light);
+}
