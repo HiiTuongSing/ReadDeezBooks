@@ -4,6 +4,7 @@
   --form-input-font-size: 1rem;
   --form-input-font-weight: 300;
   --form-input-color-background: hsl(var(--color-base-hue), 100%, 90%);
+  --form-input-border-color: black;
 }
 
 .form-row {
@@ -49,20 +50,4 @@
   resize: none;
   height: 100%;
   margin-bottom: 1rem;
-}
-
-.filepond--root {
-  font-family: var(--font-family);
-  margin-bottom: 0;
-}
-
-.filepond--panel {
-  background: var(--form-input-color-background);
-  border: 1px solid black;
-}
-
-.filepond--drop-label {
-  color: var(--color-text-light);
-  font-size: inherit;
-  padding-top: 2rem;
 }

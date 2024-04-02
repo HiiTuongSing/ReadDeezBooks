@@ -45,3 +45,10 @@ body {
 .error-message {
   color: var(--color-text-danger);
 }
+
+.empty-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}

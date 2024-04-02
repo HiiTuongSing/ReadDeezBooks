@@ -11,4 +11,5 @@
     <%- include("../partials/deleteForm", {url: `/authors/${author.id}`}) %>
   </div>
 </div>
-<% }) %>
+<% }) %> <% if(authors.length == 0) { %> <%- include("../partials/emptyPage") %>
+<% } %>

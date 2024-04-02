@@ -1,10 +1,11 @@
 :root {
   --book-cover-width: 350px;
+  --book-cover-aspect-ratio: 1/1.5;
 }
 
 .book-display-container {
   width: var(--book-cover-width);
-  aspect-ratio: 1/1.5;
+  aspect-ratio: var(--book-cover-aspect-ratio);
   display: flex;
   flex-direction: column;
   justify-content: center;
