@@ -1,8 +1,14 @@
 <h2 class="page-title">Authors</h2>
 
 <% authors.forEach(author => { %>
-<a href="/authors/<%= author.id %>"><h2><%= author.name %></h2></a>
-<a href="/authors/<%= author.id %>/edit">Edit</a>
-<a href="/authors/<%= author.id %>">View</a>
-<%- include("../partials/deleteForm", {url: `/authors/${author.id}`}) %> <% })
-%>
+<div class="author-row">
+  <a class="author-name" href="/authors/<%= author.id %>"
+    ><h2><%= author.name %></h2></a
+  >
+  <div class="btn-row">
+    <a class="btn btn-primary" href="/authors/<%= author.id %>/edit">Edit</a>
+    <a class="btn btn-primary" href="/authors/<%= author.id %>">View</a>
+    <%- include("../partials/deleteForm", {url: `/authors/${author.id}`}) %>
+  </div>
+</div>
+<% }) %>

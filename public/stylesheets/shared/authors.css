@@ -1,0 +1,19 @@
+.author-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 0.5rem;
+}
+
+.author-name {
+  text-decoration: none;
+  color: var(--color-text-light);
+}
+
+.author-row:hover {
+  background: var(--color-background-light);
+}
+
+.author-name:hover {
+  color: var(--color-text-dark);
+}
