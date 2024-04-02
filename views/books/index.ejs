@@ -1,25 +1,41 @@
 <h2 class="page-title">Books</h2>
 
 <form action="/books" method="get">
-  <label>Title</label>
-  <input type="text" name="title" value="<%= reqQuery.title %>" />
+  <div class="form-row">
+    <div class="form-item">
+      <label>Title</label>
+      <input
+        class="form-input"
+        type="text"
+        name="title"
+        value="<%= reqQuery.title %>"
+      />
+    </div>
 
-  <label>Published Before</label>
-  <input
-    type="date"
-    name="publishedBefore"
-    value="<%= reqQuery.publishedBefore %>"
-  />
+    <div class="form-item">
+      <label>Published Before</label>
+      <input
+        class="form-input"
+        type="date"
+        name="publishedBefore"
+        value="<%= reqQuery.publishedBefore %>"
+      />
+    </div>
 
-  <label>Published After</label>
-  <input
-    type="date"
-    name="publishedAfter"
-    value="<%= reqQuery.publishedAfter %>"
-  />
-
-  <a href="/books">Clear</a>
-  <button type="submit">Search</button>
+    <div class="form-item">
+      <label>Published After</label>
+      <input
+        class="form-input"
+        type="date"
+        name="publishedAfter"
+        value="<%= reqQuery.publishedAfter %>"
+      />
+    </div>
+  </div>
+  <div class="btn-row form-row form-row-end">
+    <a class="btn btn-danger" href="/books">Clear</a>
+    <button class="btn btn-primary" type="submit">Search</button>
+  </div>
 </form>
 
 <div class="book-grid">
