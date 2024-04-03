@@ -1,3 +1,10 @@
 <% if (locals.errorMessage != null && locals.errorMessage !== ''){ %>
-<h2 class="error-message"><%= errorMessage %></h2>
+<div class="screen">
+  <div class="popup-window">
+    <h2 class="error-message"><%= errorMessage %></h2>
+    <div class="btn-row form-row">
+      <a class="btn btn-primary" href="javascript:history.back()">Okay</a>
+    </div>
+  </div>
+</div>
 <% } %>

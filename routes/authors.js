@@ -35,7 +35,7 @@ router.post("/", async (req, res) => {
   } catch (err) {
     res.render("authors/new", {
       author: author,
-      errorMessage: "Error creating author...",
+      errorMessage: "The author needs a name...",
     });
     console.error(err);
   }
@@ -62,7 +62,7 @@ router.delete("/:id", async (req, res) => {
   const books = await Book.find({ author: req.params.id });
   try {
     if (books.length > 0) {
-      throw new Error("Unable to delete author with books");
+      throw new Error();
     }
     await Author.findByIdAndDelete(req.params.id);
     res.redirect("/authors");
@@ -72,7 +72,7 @@ router.delete("/:id", async (req, res) => {
       author: author,
       books: books,
       deleteConfirm: req.query.deleteConfirm,
-      errorMessage: err,
+      errorMessage: "Delete all the author's books first...",
     });
     console.error(err);
   }
@@ -103,7 +103,7 @@ router.put("/:id", async (req, res) => {
     } else {
       res.render("authors/edit", {
         author: author,
-        errorMessage: "Error updating author...",
+        errorMessage: "The author will need a name...",
       });
     }
   }

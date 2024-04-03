@@ -16,17 +16,19 @@
 
   <div class="book-description">
     <label class="book-label">Author: </label>
-    <div><%= author.name %></div>
+    <div class="book-detail"><%= author.name %></div>
 
     <label class="book-label">Publish Date: </label>
-    <div><%= book.publishDate.toISOString().split('T')[0] %></div>
+    <div class="book-detail">
+      <%= book.publishDate.toISOString().split('T')[0] %>
+    </div>
 
     <label class="book-label">Page Count: </label>
-    <div><%= book.pageCount %></div>
+    <div class="book-detail"><%= book.pageCount %></div>
 
     <% if(book.description != null && book.description != '') { %>
     <label class="book-label">Description: </label>
-    <div><%= book.description %></div>
+    <div class="book-detail"><%= book.description %></div>
     <% } %>
   </div>
 </div>

@@ -76,7 +76,7 @@ router.post("/", async (req, res) => {
     res.render("books/new", {
       authors: authors,
       book: book,
-      errorMessage: "Error creating book...",
+      errorMessage: "Please fill out all the section with * before saving...",
     });
   }
 });
@@ -116,9 +116,7 @@ router.get("/:id/edit", async (req, res) => {
     res.render("books/edit", { book: book, authors: authors, author: author });
   } catch (err) {
     console.error(err);
-    res.render("/", {
-      errorMessage: "Error editing book...",
-    });
+    res.redirect("/");
   }
 });
 
@@ -137,13 +135,14 @@ router.put("/:id", async (req, res) => {
     res.render("books/show", {
       book: book,
       author: author,
+      deleteConfirm: req.query.deleteConfirm,
     });
   } catch {
     res.render("books/edit", {
       authors: authors,
       author: author,
       book: book,
-      errorMessage: "Please make sure all required section is filled up",
+      errorMessage: "Please fill out all the section with * before saving...",
     });
   }
 });
@@ -163,8 +162,5 @@ router.delete("/:id", async (req, res) => {
     });
   }
 });
-
-//test
-router.get("/:id");
 
 module.exports = router;

@@ -71,7 +71,7 @@
   padding-top: 0.5rem;
   display: grid;
   align-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   grid-gap: 1rem;
   grid-template-columns: auto auto;
 }
@@ -97,4 +97,8 @@
   font-size: 1.2rem;
   font-weight: 500;
   align-items: flex-start;
+}
+
+.book-detail {
+  color: var(--color-text-dark);
 }
