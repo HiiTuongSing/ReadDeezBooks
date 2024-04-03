@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Author = require("../models/author");
 const Book = require("../models/book");
+const author = require("../models/author");
 const imageMimeTypes = ["image/jpeg", "image/png", "image/gif"];
 
 //Books Router with a Search Query
@@ -45,7 +46,6 @@ router.get("/new", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const authors = await Author.find({});
-
   let book;
 
   try {
@@ -63,8 +63,15 @@ router.post("/", async (req, res) => {
 
     await book.save();
     const author = await Author.findById(book.author);
-    res.render("books/show", { author: author, book: book });
+    res.render("books/show", {
+      author: author,
+      book: book,
+      deleteConfirm: req.query.deleteConfirm,
+    });
   } catch (err) {
+    if (req.body.author == "Create an author first...") {
+      res.redirect("/authors/new");
+    }
     console.error(err);
     res.render("books/new", {
       authors: authors,
@@ -87,10 +94,12 @@ function saveCover(book, encodedCover) {
 router.get("/:id", async (req, res) => {
   const book = await Book.findById(req.params.id);
   const author = await Author.findById(book.author);
+
   try {
     res.render("books/show", {
       author: author,
       book: book,
+      deleteConfirm: req.query.deleteConfirm,
     });
   } catch (err) {
     console.error(err);
@@ -154,5 +163,8 @@ router.delete("/:id", async (req, res) => {
     });
   }
 });
+
+//test
+router.get("/:id");
 
 module.exports = router;

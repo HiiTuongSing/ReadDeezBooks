@@ -52,3 +52,25 @@ body {
   align-items: center;
   height: 50vh;
 }
+
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  background: rgba(255, 255, 255, 50%);
+}
+
+.popup-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-background-light);
+  padding: 3rem;
+  border-radius: 1rem;
+}

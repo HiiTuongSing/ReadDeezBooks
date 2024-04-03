@@ -12,11 +12,17 @@
   <div class="form-item">
     <label class="form-label">Author</label>
     <select class="form-input" name="author">
-      <% authors.forEach(author => { %> 
-      <% if (author.id == book.author) { %>
-      <option class="form-input" selected value='<%= author.id %>'><%= author.name %></option>
+      <% if (authors.length == 0) { %>
+      <option class="form-input">Create an author first...</option>
+      <% } %> <% authors.forEach(author => { %> <% if (author.id == book.author)
+      { %>
+      <option class="form-input" selected value="<%= author.id %>">
+        <%= author.name %>
+      </option>
       <% } else { %>
-      <option class="form-input" value="<%=author.id %>"><%= author.name %></option>
+      <option class="form-input" value="<%=author.id %>">
+        <%= author.name %>
+      </option>
       <% }}); %>
     </select>
   </div>
@@ -53,6 +59,8 @@
 
   <div class="form-item">
     <label class="form-label">Description</label>
-    <textarea class="form-input" name="description"><%= book.description %></textarea>
+    <textarea class="form-input" name="description">
+<%= book.description %></textarea
+    >
   </div>
 </div>

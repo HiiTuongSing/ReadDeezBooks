@@ -7,7 +7,10 @@ const Book = require("../models/book");
 router.get("/", async (req, res) => {
   try {
     const authors = await Author.find({});
-    res.render("authors/index", { authors: authors });
+    res.render("authors/index", {
+      authors: authors,
+      deleteConfirm: req.query.deleteConfirm,
+    });
   } catch (err) {
     console.error(err);
   }
@@ -46,6 +49,7 @@ router.get("/:id", async (req, res) => {
     res.render("authors/show", {
       author: author,
       books: books,
+      deleteConfirm: req.query.deleteConfirm,
     });
   } catch (err) {
     res.redirect("/");
@@ -67,6 +71,7 @@ router.delete("/:id", async (req, res) => {
     res.render("authors/show", {
       author: author,
       books: books,
+      deleteConfirm: req.query.deleteConfirm,
       errorMessage: err,
     });
     console.error(err);
