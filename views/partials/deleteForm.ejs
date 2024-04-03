@@ -3,16 +3,20 @@
   <button class="btn btn-danger" type="submit">Delete</button>
 </form>
 
-<% if (deleteConfirm != null && deleteConfirm !== ''){ %>
-<div class="screen">
-  <div class="popup-window">
-    <h2>Are you sure you want to delete <%= itemToDelete %> ?</h2>
-    <div class="btn-row form-row">
-      <form action="<%= url %>?_method=DELETE" method="post">
-        <button class="btn btn-danger" type="submit">Delete</button>
-      </form>
-      <a class="btn btn-primary" href="javascript:history.back()">Cancel</a>
+<% if (deleteConfirm == 'initiate'){ %>
+    <div class="screen">
+      <div class="popup-window">
+        <h2>Are you sure you want to delete <%= itemToDelete %> ?</h2>
+        <div class="btn-row form-row">
+          <form action="<%= url %>?_method=DELETE" method="post">
+            <button class="btn btn-danger" type="submit">Delete</button>
+          </form>
+
+          <a class="btn btn-primary" href="javascript:history.back()">Cancel</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+ 
 <% } %>
+
+

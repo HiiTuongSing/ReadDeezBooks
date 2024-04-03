@@ -58,6 +58,26 @@ router.get("/:id", async (req, res) => {
 });
 
 //Delete author
+router.get("/:id", async (req, res) => {
+  const books = await Book.find({ author: req.params.id });
+  try {
+    if (req.query.deleteConfirm == "initiate") {
+      if (books.length > 0) {
+        console.log("yes");
+        throw new Error();
+      }
+    }
+  } catch {
+    let author = await Author.findById(req.params.id);
+    res.render("authors/show", {
+      author: author,
+      books: books,
+      deleteConfirm: req.query.deleteConfirm,
+      errorMessage: "Delete all the author's books first...",
+    });
+  }
+});
+
 router.delete("/:id", async (req, res) => {
   const books = await Book.find({ author: req.params.id });
   try {

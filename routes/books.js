@@ -24,7 +24,11 @@ router.get("/", async (req, res) => {
   }
   let books = await query;
   try {
-    res.render("books/index", { books: books, reqQuery: req.query });
+    res.render("books/index", {
+      books: books,
+      reqQuery: req.query,
+      deleteConfirm: req.query.deleteConfirm,
+    });
   } catch (err) {
     console.error(err);
   }

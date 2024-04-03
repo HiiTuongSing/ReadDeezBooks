@@ -3,7 +3,12 @@
   <div class="popup-window">
     <h2 class="error-message"><%= errorMessage %></h2>
     <div class="btn-row form-row">
+      <% if (locals.errorMessage == "Delete all the author's books first...") {
+      %>
+      <a class="btn btn-primary" href="javascript:history.go(-2)">Okay</a>
+      <% } else { %>
       <a class="btn btn-primary" href="javascript:history.back()">Okay</a>
+      <% } %>
     </div>
   </div>
 </div>
