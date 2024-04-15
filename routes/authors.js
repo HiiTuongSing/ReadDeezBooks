@@ -82,7 +82,7 @@ router.delete("/:id", async (req, res) => {
   const books = await Book.find({ author: req.params.id });
   try {
     if (books.length > 0) {
-      throw new Error();
+      throw new Error("Unable to delete author with books");
     }
     await Author.findByIdAndDelete(req.params.id);
     res.redirect("/authors");

@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Author = require("../models/author");
 const Book = require("../models/book");
-const author = require("../models/author");
 const imageMimeTypes = ["image/jpeg", "image/png", "image/gif"];
 
 //Books Router with a Search Query
